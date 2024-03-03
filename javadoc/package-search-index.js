@@ -1,1 +1,0 @@
-packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"ru.aston"},{"l":"ru.aston.list"},{"l":"ru.aston.list.impl"}];updateSearchResults();

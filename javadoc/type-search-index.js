@@ -1,1 +1,0 @@
-typeSearchIndex = [{"l":"All Classes and Interfaces","u":"allclasses-index.html"},{"p":"ru.aston.list.impl","l":"ArrayListImpl"},{"p":"ru.aston.list","l":"CustomList"},{"p":"ru.aston.list.impl","l":"LinkedListImpl"},{"p":"ru.aston","l":"Main"}];updateSearchResults();
