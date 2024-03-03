@@ -20,10 +20,21 @@ import java.util.Objects;
  * @author Sergey Sherstyankin
  */
 public class LinkedListImpl<T> implements CustomList<T> {
+    /**
+     * Узел начала списка
+     */
     Node<T> head;
+    /**
+     * Узел конца списка
+     */
     Node<T> tail;
+    /**
+     * Размер списка
+     */
     private int size = 0;
-
+    /**
+     * Конструктор для создание пустого списка
+     */
     public LinkedListImpl() {
         // Empty list
     }
@@ -170,6 +181,11 @@ public class LinkedListImpl<T> implements CustomList<T> {
         return Objects.hash(head, tail, size);
     }
 
+    /**
+     * Переводит массив в связанный список.
+     *
+     * @param  - массив.
+     */
     private void fromArray(Object[] array) {
         clearAll();
         for (Object o : array) {
@@ -177,16 +193,20 @@ public class LinkedListImpl<T> implements CustomList<T> {
         }
     }
 
+    /**
+     * Переводит связанный список в массив.
+     *
+     * @return - массив.
+     */
     private Object[] toArray() {
         Object[] array = new Object[size];
         Node<T> n = head;
         int index = 0;
-        do {
+        while (n != null) {
             array[index] = n.element;
             n = n.next;
             index++;
-        } while (n.next != null);
-        array[index] = n.element; // добавить последний элемент
+        }
         return array;
     }
 
@@ -260,17 +280,32 @@ public class LinkedListImpl<T> implements CustomList<T> {
         return n;
     }
 
+    /**
+     * Проверяет, что индекс не выходит за границу списка.
+     *
+     * @param  - массив.
+     * @throws IndexOutOfBoundsException, если индекс вне границ списка.
+     */
     private void checkIndex(int index, int size) {
         if (index < 0 || index >= size)
             throw new IndexOutOfBoundsException(index);
     }
 
+    /**
+     * Проверяет, что элемент по указанным индексом не null.
+     *
+     * @param - узел.
+     * @throws NullPointerException, если индекс указывает на null.
+     */
     private void checkNPE(Node<T> n) {
         if (n.element == null) {
             throw new NullPointerException();
         }
     }
 
+    /**
+     * Класс для создания объекта узел (node).
+     */
     private static class Node<T> {
         T element;
         Node<T> next;

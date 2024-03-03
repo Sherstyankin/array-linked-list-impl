@@ -15,18 +15,35 @@ import java.util.Objects;
  * - вставка (если массив заполнен): O(n);
  * - удаление: O(n);
  * - поиск по индексу: O(1).
+ *
  * @author Sergey Sherstyankin
  */
 public class ArrayListImpl<T> implements CustomList<T> {
+    /**
+     * Статический массив для хранения элементов
+     */
     private Object[] array;
+    /**
+     * Значение изначальной вместимости массива
+     */
     private static final int INITIAL_CAPACITY = 8;
-
+    /**
+     * Размер массива
+     */
     private int size = 0;
 
+    /**
+     * Конструктов без параметром, изначальная вместимость массива задается по умолчанию.
+     */
     public ArrayListImpl() {
         this.array = new Object[INITIAL_CAPACITY];
     }
 
+    /**
+     * Конструктор, который принимает необходимый изначальный размер массива
+     *
+     * @param - изначальная вместимость массива.
+     */
     public ArrayListImpl(int size) {
         this.array = new Object[size];
     }
@@ -182,11 +199,23 @@ public class ArrayListImpl<T> implements CustomList<T> {
         return result;
     }
 
+    /**
+     * Проверяет, что индекс не выходит за границу списка.
+     *
+     * @param - массив.
+     * @throws IndexOutOfBoundsException, если индекс вне границ списка.
+     */
     private void checkIndex(int index, int size) {
         if (index < 0 || index >= size)
             throw new IndexOutOfBoundsException(index);
     }
 
+    /**
+     * Проверяет, что элемент по указанным индексом не null.
+     *
+     * @param - узел.
+     * @throws NullPointerException, если индекс указывает на null.
+     */
     private void checkNPE(int index) {
         if (array[index] == null) {
             throw new NullPointerException();
