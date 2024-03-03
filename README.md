@@ -1,1 +1,1 @@
-# array-linked-list-impl
+# Custom ArrayList and LinkedList implementations
